@@ -1,15 +1,15 @@
 package model;
 
-public class Species {
+public abstract class Species {
 
 	private String name;
 	private String scientificName;
+	private SpeciesType type;
 
-	public Species(String name, String scientificName) {
-
+	public Species(SpeciesType type, String name, String scientificName) {
 		this.name = name;
 		this.scientificName = scientificName;
-
+		this.type = type;
 	}
 
 	public String getName() {
@@ -28,4 +28,16 @@ public class Species {
 		this.scientificName = scientificName;
 	}
 
+	public SpeciesType getType() {
+		return type;
+	}
+
+	public void setType(SpeciesType type) {
+		this.type = type;
+	}
+
+	@Override
+	public String toString() {
+		return type + ": Named " + name + " - " + scientificName;
+	}
 }
